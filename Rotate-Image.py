@@ -3,11 +3,11 @@
 3class Solution:
 4    def rotate(self, matrix: List[List[int]]) -> None:
 5        """
-6        Do not return anything, modify matrix in-place instead.
+6        Rotates the image by 90 degrees clockwise in-place.
 7        """
 8        n = len(matrix)
 9        
-10        # Step 1: Transpose the matrix (swap rows with columns)
+10        # Step 1: Transpose the matrix (swap rows and columns)
 11        for i in range(n):
 12            for j in range(i + 1, n):
 13                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
