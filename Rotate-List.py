@@ -10,7 +10,7 @@
 10        if not head or not head.next or k == 0:
 11            return head
 12        
-13        # Step 1: Find the length of the list
+13        # Step 1: Find the length of the linked list
 14        length = 1
 15        tail = head
 16        while tail.next:
@@ -22,17 +22,17 @@
 22        if k == 0:
 23            return head
 24        
-25        # Step 3: Find the new head (node at position length - k)
-26        # We need to find the node that will become the new tail
-27        new_tail_position = length - k - 1
-28        new_tail = head
-29        
+25        # Step 3: Find the new head (break point)
+26        # We need to move to the node at position (length - k)
+27        # Example: length=5, k=2 -> need to go to node at position 3
+28        new_tail_position = length - k - 1
+29        current = head
 30        for _ in range(new_tail_position):
-31            new_tail = new_tail.next
+31            current = current.next
 32        
-33        # Step 4: Perform the rotation
-34        new_head = new_tail.next
-35        new_tail.next = None
+33        # Step 4: Rotate the list
+34        new_head = current.next
+35        current.next = None
 36        tail.next = head
 37        
 38        return new_head
